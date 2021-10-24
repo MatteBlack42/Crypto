@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Encriptacion asimetrica</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static',filename='style.css' )}}"
+        />
+        <script src="https://use.fontawesome.com/33bf8678c7.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <h2 class="title1">Encriptación</h2>
+                    <h2 class="title2">asimétrica</h2>
+                </div>
+                <div class="seccion">
+                    <i class="fa fa-lock"></i>
+                    <p class="sidet">Encriptación</p>
+                </div>
+                <div class="names">
+                    <p>Hecho por:</p>
+                    <p>Nathalia Hihuallanca / Sergio Ortiz / Ebenezer Roque</p>
+                </div>
+            </div>
+            <div class="main">
+                <h2 class="title4">Tus claves</h2>
+                <div class="claves">
+                    <div class="clave">
+                        <div class="sidekey">
+                            <div class="circle">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p>Tu clave Pública</p>
+                            <p class="paragraph">
+                                Puedes compartir esta clave con alguien para que
+                                te manden documentos que solo tu puedas ver
+                            </p>
+                            <div class="download">
+                                <i class="fa fa-download"></i>
+                                <p class="down">Descargar</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clave red">
+                        <div class="sidekeyr">
+                            <div class="circler">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p>Tu clave Privada</p>
+                            <p class="paragraph">
+                                Utiliza esta clave para desencriptar archivos
+                                que vayan dirigidos hacia tí
+                            </p>
+                            <div class="downloadr">
+                                <i class="fa fa-download"></i>
+                                <p class="downr">Descargar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="encrypt">
+                    <form
+                        class="enc"
+                        method="POST"
+                        action="/upload"
+                        enctype="multipart/form-data"
+                    >
+                        <p class="title5">Encriptar</p>
+                        <div class="uplzone">
+                            <p>Sube un archivo</p>
+                            <span class="firstfileInput">
+                                <input
+                                    id="firstfileInput"
+                                    class="fileInput style"
+                                    type="file"
+                                    name="file"
+                                />
+                            </span>
+                            <label for="firstfileInput">
+                                <div class="iconup">
+                                    <i class="fa fa-upload" id="uploadi"></i>
+                                </div>
+                                <span class="fileInputs" id="firstfileInput">
+                                    Selecciona un archivo que deseas encriptar
+                                    puede ser un archivo .jpg, .png o .txt
+                                </span>
+                            </label>
+                            <p>Sube una clave pública</p>
+                            <span class="secondfileInput">
+                                <input
+                                    id="secondfileInput"
+                                    class="fileInput style"
+                                    type="file"
+                                    name="file"
+                                />
+                            </span>
+                            <label for="secondfileInput">
+                                <div class="iconup">
+                                    <i class="fa fa-key" id="uploadi"></i>
+                                </div>
+                                <span class="fileInputs" id="secondfileInput">
+                                    Selecciona la clave pública de la persona a
+                                    la que quieres enviarle el archivo
+                                </span>
+                            </label>
+                        </div>
+                        <input
+                            class="encbutt"
+                            type="submit"
+                            onclick="$('#loading').show();"
+                            value="Encriptar"
+                        />
+                    </form>
+                    <form
+                        class="enc des"
+                        method="POST"
+                        action="/upload"
+                        enctype="multipart/form-data"
+                    >
+                        <p class="title5">Desencriptar</p>
+                        <div class="uplzonedes">
+                            <p>Sube un archivo</p>
+                            <span class="thirdfileInput des">
+                                <input
+                                    id="thirdfileInput"
+                                    class="fileInput style"
+                                    type="file"
+                                    name="file"
+                                />
+                            </span>
+                            <label for="thirdfileInput" id="deslabel1">
+                                <div class="iconup">
+                                    <i class="fa fa-upload" id="uploadi"></i>
+                                </div>
+                                <span class="fileInputs" id="third">
+                                    Selecciona un archivo que deseas
+                                    desencriptar
+                                </span>
+                            </label>
+                            <p>Sube una clave pública</p>
+                            <span class="forthfileInput">
+                                <input
+                                    id="forthfileInput"
+                                    class="fileInput style"
+                                    type="file"
+                                    name="file"
+                                />
+                            </span>
+                            <label for="forthfileInput" id="deslabel2">
+                                <div class="iconup">
+                                    <i class="fa fa-key" id="uploadi"></i>
+                                </div>
+                                <span class="fileInputs" id="forthfileInput">
+                                    Selecciona tu clave privada
+                                </span>
+                            </label>
+                        </div>
+                        <input
+                            class="encbutt des"
+                            type="submit"
+                            onclick="$('#loading').show();"
+                            value="Desencriptar"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+            type="text/javascript"
+        ></script>
+        <script type="application/javascript">
+            jQuery('input[type=file]').change(function () {
+                var filename = jQuery(this).val().split('\\').pop();
+                var idname = jQuery(this).attr('id');
+                console.log(jQuery(this));
+                console.log(filename);
+                console.log(idname);
+                console.log('span.' + idname);
+                jQuery('span.' + idname)
+                    .next()
+                    .find('span')
+                    .html(filename);
+            });
+        </script>
+    </body>
+</html>
