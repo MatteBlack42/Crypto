@@ -31,7 +31,10 @@
                 </div>
                 <div class="names">
                     <p>Hecho por:</p>
-                    <p>Nathalia Hihuallanca / Sergio Ortiz / Ebenezer Roque</p>
+                    <p>
+                        Nathalia Hihuallanca / Sergio Ortiz / Ebenezer Roque /
+                        Catacora Llerena
+                    </p>
                 </div>
             </div>
             <div class="main">
@@ -49,12 +52,15 @@
                                 Puedes compartir esta clave con alguien para que
                                 te manden documentos que solo tu puedas ver
                             </p>
-                            <div class="download">
-                                <i class="fa fa-download"></i>
-                                <p class="down">Descargar</p>
-                            </div>
+                            <a href="{{ url_for('publickey') }}">
+                                <div class="download">
+                                    <i class="fa fa-download"></i>
+                                    <p class="down">Descargar</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
+
                     <div class="clave red">
                         <div class="sidekeyr">
                             <div class="circler">
@@ -67,10 +73,12 @@
                                 Utiliza esta clave para desencriptar archivos
                                 que vayan dirigidos hacia tí
                             </p>
-                            <div class="downloadr">
-                                <i class="fa fa-download"></i>
-                                <p class="downr">Descargar</p>
-                            </div>
+                            <a href="{{ url_for('privatekey') }}">
+                                <div class="downloadr">
+                                    <i class="fa fa-download"></i>
+                                    <p class="downr">Descargar</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +86,7 @@
                     <form
                         class="enc"
                         method="POST"
-                        action="/upload"
+                        action="/encript"
                         enctype="multipart/form-data"
                     >
                         <p class="title5">Encriptar</p>
@@ -130,7 +138,7 @@
                     <form
                         class="enc des"
                         method="POST"
-                        action="/upload"
+                        action="/decript"
                         enctype="multipart/form-data"
                     >
                         <p class="title5">Desencriptar</p>
@@ -174,7 +182,6 @@
                         <input
                             class="encbutt des"
                             type="submit"
-                            onclick="$('#loading').show();"
                             value="Desencriptar"
                         />
                     </form>
